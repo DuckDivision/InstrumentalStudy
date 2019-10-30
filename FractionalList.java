@@ -60,4 +60,19 @@ public class FractionalList implements Iterable<Fractional> {
     }
     return count;
   }
+  public void read(String fliName) throws FileNotFoundException, IllegalArgumentException
+  {
+    File file = new File(fliName);
+    if(!file.exists())
+      throw new FileNotFoundException("File doesn't exist");
+
+    list = new ArrayList<>();
+    Scanner scanner = new Scanner(file);
+    while(scanner.hasNextLine())
+    {
+      int nomerator = scanner.nextInt();
+      int denomerator = scanner.nextInt();
+      list.add(new Fractional(nomerator,denomerator));
+    }
+  }
 }
