@@ -34,43 +34,4 @@ public class Polynom implements Iterable<Fractional> {
   public Iterator<Fractional> iterator() {
     return fractionalList.iterator();
   }
-
-  public Polynom sum(Polynom pol)
-  {
-    Polynom result = new Polynom();
-    int size = Math.min(this.size(), pol.size());
-    for(int i = 0; i < size; i++)
-    {
-      result.add(fractionalList.get(i).add(pol.fractionalList.get(i)));
-    }
-    if(this.size()>pol.size())
-    {
-      for(int i=size;i<this.size();i++)
-      {
-        result.add(this.fractionalList.get(i));
-      }
-    }
-    else
-    {
-      for(int i = size; i < pol.size(); i++)
-      {
-        result.add(pol.get(i));
-      }
-    }
-    return result;
-  }
-
-  @Override
-  public String toString() {
-    String result = "";
-    for(int i = 0; i < fractionalList.size(); i++)
-    {
-      result+=fractionalList.get(i).toString()+"*x^"+i;
-      if(i!=fractionalList.size()-1)
-      {
-        result+=" + ";
-      }
-    }
-    return result;
-  }
 }
